@@ -51,10 +51,10 @@ objectData: The object data of the service
           {{- fail "Service - Expected non-empty <nodePort> on NodePort service type" -}}
         {{- end -}}
 
-        {{- $minNodePort := int $rootCtx.Values.global.minNodePort -}}
+        {{/*- $minNodePort := int $rootCtx.Values.global.minNodePort -}}
         {{- if (lt $nodePort $minNodePort) -}}
           {{- fail (printf "Service - Expected <nodePort> to be higher than [%v], but got [%v]" $minNodePort $nodePort) -}}
-        {{- end }}
+        {{- end */}}
   nodePort: {{ $nodePort }}
       {{- end -}}
     {{- end -}}
